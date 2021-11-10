@@ -18,7 +18,7 @@ namespace KiwiCommerce\CronScheduler\Controller\Adminhtml\Cron;
  * Class LongJobChecker
  * @package KiwiCommerce\CronScheduler\Controller\Adminhtml\Cron
  */
-class LongJobChecker extends \Magento\Backend\App\Action
+class LongJobChecker
 {
     /**
      * @var \KiwiCommerce\CronScheduler\Model\ResourceModel\Schedule\CollectionFactory
@@ -42,18 +42,15 @@ class LongJobChecker extends \Magento\Backend\App\Action
 
     /**
      * Class constructor.
-     * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $dateTime
      * @param \KiwiCommerce\CronScheduler\Model\ResourceModel\Schedule\CollectionFactory $scheduleCollectionFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Stdlib\DateTime\DateTime $dateTime,
         \KiwiCommerce\CronScheduler\Model\ResourceModel\Schedule\CollectionFactory $scheduleCollectionFactory
     ) {
         $this->dateTime = $dateTime;
         $this->scheduleCollectionFactory = $scheduleCollectionFactory;
-        parent::__construct($context);
     }
 
     /**
